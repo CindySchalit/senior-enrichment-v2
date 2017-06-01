@@ -6,6 +6,7 @@ import store from './store';
 
 import Home from './components/Home';
 import CampusesContainer from './containers/CampusesContainer';
+import CampusContainer from './containers/CampusContainer';
 import StudentsContainer from './containers/StudentsContainer';
 
 import { receiveCampuses, getCampusById } from './action-creators/campuses';
@@ -25,11 +26,17 @@ function onHomeEnter() {
   .catch(err => console.log(err));
 }
 
+function onCampusEnter(nextRouterState) {
+  const campusId = nextRouterState.params.campusId;
+  store.dispatch(getCampusById(campusId));
+}
+
 export default function Root () {
   return (
     <Router history={hashHistory}>
       <Route path="/" component={Home} onEnter={onHomeEnter} />
         <Route path="/campuses" component={CampusesContainer} />
+        <Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter} />
         <Route path="/students" component={StudentsContainer} />
     </Router>
   );
