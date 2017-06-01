@@ -1,4 +1,4 @@
-import { RECEIVE_CAMPUSES, RECEIVE_CAMPUS, ADD_CAMPUS } from '../constants';
+import { RECEIVE_CAMPUSES, RECEIVE_CAMPUS, UPDATE_CAMPUS } from '../constants';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
 
@@ -40,12 +40,23 @@ export const addCampus = newCampus => {
 /* ----- ----- ----- Deleting a Campus ----- ----- ----- */
 
 export const deleteCampus = function(campus) {
-  return function(dispatch, getState) {
+  return function(dispatch) {
     axios.delete(`/api/campuses/${campus.id}`)
     .then(res => res.data)
     .then(campusesMinusOne => {
-      dispatch(receiveCampuses(campusesMinusOne))
+      dispatch(receiveCampuses(campusesMinusOne));
     })
     .catch(err => console.log(err));
   }
+}
+
+/* ----- ----- ----- Updating a Campus ----- ----- ----- */
+
+export const update = campus => ({
+  type: UPDATE_CAMPUS,
+  campus,
+});
+
+export const updateCampus = function(campus) {
+  // return function(dispatch)
 }

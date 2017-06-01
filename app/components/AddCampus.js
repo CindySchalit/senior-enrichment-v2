@@ -1,8 +1,6 @@
 import React from 'react';
 
 function AddCampus(props) {
-  console.log('PROPS IN ADD CAMPUS COMPONENT: ', props);
-
   return (
     <div>
       <h3>Add a Campus</h3>

@@ -11,7 +11,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     removeCampus: function(oldCampus) {
-      console.log('Delete button clicked');
       const action = deleteCampus(oldCampus);
       dispatch(action);
     }

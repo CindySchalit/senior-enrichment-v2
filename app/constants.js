@@ -1,6 +1,7 @@
 //Campuses
 export const RECEIVE_CAMPUSES = 'RECEIVE_CAMPUSES';
 export const RECEIVE_CAMPUS = 'RECEIVE_CAMPUS';
+export const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 
 //Students
 export const RECEIVE_STUDENTS = 'RECEIVE_STUDENTS';
