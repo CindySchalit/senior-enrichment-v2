@@ -6,18 +6,21 @@ import store from './store';
 
 import Home from './components/Home';
 import CampusesContainer from './containers/CampusesContainer';
+import StudentsContainer from './containers/StudentsContainer';
 
 import { receiveCampuses, getCampusById } from './action-creators/campuses';
+import { receiveStudents, getStudentById } from './action-creators/students';
 
 function onHomeEnter() {
   const gettingCampuses = axios.get('/api/campuses');
-  // need to add gettingStudents upon setting up same
+  const gettingStudents = axios.get('/api/students');
 
   return Promise
-  .all([gettingCampuses]) // need to add students
+  .all([gettingCampuses, gettingStudents])
   .then(res => res.map(r => r.data))
-  .then(([campuses]) => { // need to add students
-    store.dispatch(receiveCampuses(campuses));  // need to add students
+  .then(([campuses, students]) => {
+    store.dispatch(receiveCampuses(campuses));
+    store.dispatch(receiveStudents(students));
   })
   .catch(err => console.log(err));
 }
@@ -27,6 +30,7 @@ export default function Root () {
     <Router history={hashHistory}>
       <Route path="/" component={Home} onEnter={onHomeEnter} />
         <Route path="/campuses" component={CampusesContainer} />
+        <Route path="/students" component={StudentsContainer} />
     </Router>
   );
 }

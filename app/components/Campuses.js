@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export default function Campuses(props) {
-  console.log('PROPS IN CAMPUSES: ', props);
   const campuses = props.campuses;
 
   return (
