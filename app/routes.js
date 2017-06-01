@@ -8,6 +8,7 @@ import Home from './components/Home';
 import CampusesContainer from './containers/CampusesContainer';
 import CampusContainer from './containers/CampusContainer';
 import StudentsContainer from './containers/StudentsContainer';
+import StudentContainer from './containers/StudentContainer';
 
 import { receiveCampuses, getCampusById } from './action-creators/campuses';
 import { receiveStudents, getStudentById } from './action-creators/students';
@@ -31,6 +32,11 @@ function onCampusEnter(nextRouterState) {
   store.dispatch(getCampusById(campusId));
 }
 
+function onStudentEnter(nextRouterState) {
+  const studentId = nextRouterState.params.studentId;
+  store.dispatch(getStudentById(studentId));
+}
+
 export default function Root () {
   return (
     <Router history={hashHistory}>
@@ -38,6 +44,7 @@ export default function Root () {
         <Route path="/campuses" component={CampusesContainer} />
         <Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter} />
         <Route path="/students" component={StudentsContainer} />
+        <Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
     </Router>
   );
 }
