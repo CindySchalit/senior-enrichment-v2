@@ -7,6 +7,7 @@ import store from './store';
 import Home from './components/Home';
 import CampusesContainer from './containers/CampusesContainer';
 import CampusContainer from './containers/CampusContainer';
+import AddCampusContainer from './containers/AddCampusContainer';
 import StudentsContainer from './containers/StudentsContainer';
 import StudentContainer from './containers/StudentContainer';
 
@@ -43,6 +44,7 @@ export default function Root () {
       <Route path="/" component={Home} onEnter={onHomeEnter} />
         <Route path="/campuses" component={CampusesContainer} />
         <Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter} />
+        <Route path="/add/campus" component={AddCampusContainer} />
         <Route path="/students" component={StudentsContainer} />
         <Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
     </Router>

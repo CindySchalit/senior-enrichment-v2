@@ -25,6 +25,6 @@ router.get('/:id', (req, res, next) => {
     res.send(campus);
   })
   .catch(next);
-})
+});
 
 module.exports = router;

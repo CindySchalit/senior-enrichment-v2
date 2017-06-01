@@ -6,7 +6,8 @@ export default function Campuses(props) {
 
   return (
     <div>
-      <h2>Campuses</h2>
+      <h2>All Campuses</h2>
+      <Link to={`/add/campus`}>ADD A NEW CAMPUS</Link>
       <div className="row">
       {
         campuses && campuses.map(c => (
@@ -15,7 +16,7 @@ export default function Campuses(props) {
               <img src={ c.image } />
               <div className="caption">
                 <h3>
-                  <span>{ c.name }</span>
+                  <span>Click here for more information on { c.name } Campus.</span>
                 </h3>
               </div>
             </Link>

@@ -9,5 +9,6 @@ api.get('/hello', (req, res) => res.send({hello: 'world'}));
 
 api.use('/students', require('./routes/students'));
 api.use('/campuses', require('./routes/campuses'));
+api.use('/add', require('./routes/add'));
 
 module.exports = api
