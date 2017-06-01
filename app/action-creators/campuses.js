@@ -1,5 +1,6 @@
 import { RECEIVE_CAMPUSES, RECEIVE_CAMPUS, ADD_CAMPUS } from '../constants';
 import axios from 'axios';
+import { hashHistory } from 'react-router';
 
 export const receiveCampuses = campuses => ({
   type: RECEIVE_CAMPUSES,

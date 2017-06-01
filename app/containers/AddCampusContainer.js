@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import AddCampus from '../components/AddCampus';
 import { addCampus } from '../action-creators/campuses';
-import axios from 'axios';
+import { connect } from 'react-redux';
 
-export default class AddCampusContainer extends Component {
+function mapDispatchToProps(dispatch) {
+  return {
+    addCampus: function(newCampus) {
+      dispatch(addCampus(newCampus));
+    },
+  }
+}
+
+class AddCampusContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -24,7 +32,7 @@ export default class AddCampusContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    addCampus(this.state);
+    this.props.addCampus(this.state);
     this.setState({
       name: '',
       image: '',
@@ -44,3 +52,5 @@ export default class AddCampusContainer extends Component {
     )
   }
 }
+
+export default connect(null, mapDispatchToProps)(AddCampusContainer);
