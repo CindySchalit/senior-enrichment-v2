@@ -44,7 +44,7 @@ export const deleteCampus = function(campus) {
     axios.delete(`/api/campuses/${campus.id}`)
     .then(res => res.data)
     .then(campusesMinusOne => {
-      dispatch(getCampuses(campusesMinusOne))
+      dispatch(receiveCampuses(campusesMinusOne))
     })
     .catch(err => console.log(err));
   }

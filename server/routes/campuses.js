@@ -29,7 +29,19 @@ router.get('/:id', (req, res, next) => {
 
 // DELETE api/campuses/:id
 router.delete('/:id', (req, res, next) => {
-
+  Campus.findById(req.params.id)
+  .then(campus => {
+    if (campus) {
+      return campus.destroy();
+    }
+    else {
+      res.status(404).end();
+    }
+  })
+  .then(book => {
+    res.status(204).end();
+  })
+  .catch(next);
 });
 
 module.exports = router;
