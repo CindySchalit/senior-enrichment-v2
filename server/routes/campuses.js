@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const models = require('../../db/models/index.js');
 const Campus = models.Campus;
+const User = models.User;
 
 // GET api/campuses/
 router.get('/', (req, res, next) => {
@@ -16,7 +17,10 @@ router.get('/', (req, res, next) => {
 
 // GET api/campuses/:id
 router.get('/:id', (req, res, next) => {
-  Campus.findById(req.params.id)
+  Campus.findOne({
+    where: { id: req.params.id },
+    include: [ User ] // eager loading
+  })
   .then(campus => {
     res.send(campus);
   })
