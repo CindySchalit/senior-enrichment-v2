@@ -27,4 +27,9 @@ router.get('/:id', (req, res, next) => {
   .catch(next);
 });
 
+// DELETE api/campuses/:id
+router.delete('/:id', (req, res, next) => {
+
+});
+
 module.exports = router;

@@ -1,5 +1,6 @@
 import Campuses from '../components/Campuses';
 import { connect } from 'react-redux';
+import { deleteCampus } from '../action-creators/campuses';
 
 function mapStateToProps(state) {
   return {
@@ -7,6 +8,15 @@ function mapStateToProps(state) {
   };
 }
 
-const CampusesContainer = connect(mapStateToProps)(Campuses);
+function mapDispatchToProps(dispatch) {
+  return {
+    removeCampus: function(oldCampus) {
+      const action = deleteCampus(oldCampus);
+      dispatch(action);
+    }
+  }
+}
+
+const CampusesContainer = connect(mapStateToProps, mapDispatchToProps)(Campuses);
 
 export default CampusesContainer;
