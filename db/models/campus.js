@@ -2,18 +2,15 @@
 const Sequelize = require('sequelize');
 const db = require('../index.js');
 
-const User = db.define('user', {
+const Campus = db.define('campus', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  email: {
+  image: {
     type: Sequelize.STRING,
     allowNull: false,
-    validate: {
-      isEmail: true,
-    }
   }
 });
 
-module.exports = User;
+module.exports = Campus;
