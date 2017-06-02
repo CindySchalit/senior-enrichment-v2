@@ -11,8 +11,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    updateCampus: function(campus) {
-      dispatch(updateCampus(campus));
+    newCampusInfo: function(id, campus) {
+      dispatch(updateCampus(id, campus));
     }
   }
 }
@@ -38,8 +38,9 @@ class CampusContainer extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
+    console.log('SELECTED CAMPUS ID IN handleSubmit: ', this.props.selectedCampus.id);
     console.log('STATE IN handleSubmit: ', this.state);
-    this.props.updateCampus(this.props.selectedCampus.id, this.state);
+    this.props.newCampusInfo(this.props.selectedCampus.id, this.state);
     this.setState({
       name: '',
       image: '',
