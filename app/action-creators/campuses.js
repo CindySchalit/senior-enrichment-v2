@@ -57,9 +57,10 @@ export const update = campus => ({
   campus,
 });
 
-export const updateCampus = function(campus) {
+export const updateCampus = function(id, campus) {
+  console.log('CAMPUS IN updateCampus: ', campus);
   return function(dispatch) {
-    axios.put(`/api/edit/campuses/${campus.id}`)
+    axios.put(`/api/edit/campuses/${id}`)
     .then(res => res.data)
     .then(campus => {
       dispatch(update(campus));

@@ -12,4 +12,4 @@ api.use('/campuses', require('./routes/campuses'));
 api.use('/add', require('./routes/add'));
 api.use('/edit', require('./routes/edit'));
 
-module.exports = api
+module.exports = api;

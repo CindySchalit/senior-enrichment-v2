@@ -32,13 +32,14 @@ class CampusContainer extends Component {
 
   handleChange(evt) {
     this.setState({
-      [event.target.name]: event.target.value,
+      [evt.target.name]: evt.target.value,
     });
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.updateCampus(this.state);
+    console.log('STATE IN handleSubmit: ', this.state);
+    this.props.updateCampus(this.props.selectedCampus.id, this.state);
     this.setState({
       name: '',
       image: '',

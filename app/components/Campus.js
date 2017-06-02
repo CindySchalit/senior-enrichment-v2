@@ -4,8 +4,6 @@ import { Link } from 'react-router';
 export default function Campus(props) {
   const campus = props && props.selectedCampus;
   const students = props.selectedCampus && props.selectedCampus.users;
-  console.log('CAMPUS IN CAMPUS COMPONENT: ', campus);
-  console.log('STUDENTS IN CAMPUS COMPONENT: ', students);
 
   return (
     <div>
@@ -21,7 +19,6 @@ export default function Campus(props) {
           ))
         }
       </div>
-      {/*
       <div>
         <h3>Edit { campus.name } Campus</h3>
         <form onSubmit={props.handleSubmit}>
@@ -50,7 +47,7 @@ export default function Campus(props) {
             className="btn btn-warning btn-lg">
           Click to Edit</button>
         </form>
-      </div>*/}
+      </div>
     </div>
   );
 }
