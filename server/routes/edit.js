@@ -8,8 +8,6 @@ const User = models.User;
 
 // PUT api/edit/campuses/:id
 router.put('/campuses/:id', (req, res, next) => {
-  console.log('~~~~~~~ req.params.id: ', req.params.id);
-  console.log('~~~~~~~ req.body: ', req.body);
   Campus.findById(req.params.id)
   .then(campus => {
     if (campus) {

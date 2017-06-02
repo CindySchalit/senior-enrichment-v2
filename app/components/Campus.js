@@ -5,8 +5,6 @@ export default function Campus(props) {
   const campus = props && props.selectedCampus;
   const students = props.selectedCampus && props.selectedCampus.users;
 
-  console.log('PROPS IN CAMPUS COMPONENT: ', props);
-
   return (
     <div>
       <div>

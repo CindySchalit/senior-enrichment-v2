@@ -38,7 +38,7 @@ router.delete('/:id', (req, res, next) => {
       res.status(404).end();
     }
   })
-  .then(book => {
+  .then(campus => {
     res.status(204).end();
   })
   .catch(next);

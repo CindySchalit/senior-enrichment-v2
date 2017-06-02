@@ -38,8 +38,6 @@ class CampusContainer extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    console.log('SELECTED CAMPUS ID IN handleSubmit: ', this.props.selectedCampus.id);
-    console.log('STATE IN handleSubmit: ', this.state);
     this.props.newCampusInfo(this.props.selectedCampus.id, this.state);
     this.setState({
       name: '',
