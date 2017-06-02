@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export default function Campus(props) {
-  const campus = props.selectedCampus;
-  const students = campus.users;
+  const campus = props && props.selectedCampus;
+  const students = props.selectedCampus && props.selectedCampus.users;
+  console.log('CAMPUS IN CAMPUS COMPONENT: ', campus);
+  console.log('STUDENTS IN CAMPUS COMPONENT: ', students);
 
   return (
     <div>
@@ -19,22 +21,27 @@ export default function Campus(props) {
           ))
         }
       </div>
+      {/*
       <div>
         <h3>Edit { campus.name } Campus</h3>
-        <form>
+        <form onSubmit={props.handleSubmit}>
           <ul>
             <li>
               <input
                 placeholder='New Campus Name'
+                onChange={props.handleChange}
                 type='text'
                 name='name'
+                value={props.newName}
               />
             </li>
             <li>
               <input
                 placeholder='New Campus Image'
+                onChange={props.handleChange}
                 type='text'
                 name='image'
+                value={props.newImage}
               />
             </li>
           </ul>
@@ -43,7 +50,7 @@ export default function Campus(props) {
             className="btn btn-warning btn-lg">
           Click to Edit</button>
         </form>
-      </div>
+      </div>*/}
     </div>
   );
 }
